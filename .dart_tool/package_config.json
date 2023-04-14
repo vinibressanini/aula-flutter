@@ -3,7 +3,7 @@
   "packages": [
     {
       "name": "collection",
-      "rootUri": "file:///C:/Users/vinicius_m_oliveira/AppData/Local/Pub/Cache/hosted/pub.dev/collection-1.17.1",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.17.1",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -14,7 +14,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2023-04-12T22:10:51.000976Z",
+  "generated": "2023-04-14T17:39:44.337251Z",
   "generator": "pub",
-  "generatorVersion": "2.19.4"
+  "generatorVersion": "2.18.2"
 }

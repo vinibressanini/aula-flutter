@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import '../domain/cliente_service.dart';
+import '../domain/customer/customer_service.dart';
 import '../view/view.dart';
 import '../view/app_view.dart';
 

@@ -1,13 +1,12 @@
-import '../domain/cliente.dart';
-import '../domain/cliente_service.dart';
+import '../domain/customer/customer.dart';
+import '../domain/customer/customer_service.dart';
 
 class ListarClientesUsecase {
-    execute(Map<String, dynamic> context) {
-                
-        ClienteService service = context['contactService'];
-        
-        List<Cliente> clientes = service.listarClientes;
-        
-        return clientes;
-    }
+  execute(Map<String, dynamic> context) {
+    ClienteService service = context['contactService'];
+
+    List<Customer> clientes = service.getAllCustomers;
+
+    return clientes;
+  }
 }

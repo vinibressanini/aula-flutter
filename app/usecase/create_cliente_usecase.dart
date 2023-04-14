@@ -1,10 +1,9 @@
-import '../domain/cliente.dart';
-import '../domain/endereco.dart';
-import '../domain/cliente_service.dart';
-
+import '../domain/customer/customer.dart';
+import '../domain/address/address.dart';
+import '../domain/customer/customer_service.dart';
 
 class CreateClienteUsecase {
-    execute(Map<String, dynamic> context) {
+  execute(Map<String, dynamic> context) {
     Map<String, dynamic> data = context['data'];
 
     String name = data['name'] ?? "";
@@ -18,8 +17,8 @@ class CreateClienteUsecase {
     int id = DateTime.now().millisecondsSinceEpoch;
 
     ClienteService service = context['contactService'];
-    
-    service.addCLiente(
-        Cliente(id, name, cpf, Endereco(logradouro,numero, complemento, bairro,cidade,cep)));
+
+    service.addCLiente(Customer(id, name, cpf,
+        Endereco(logradouro, numero, complemento, bairro, cidade, cep)));
   }
 }
