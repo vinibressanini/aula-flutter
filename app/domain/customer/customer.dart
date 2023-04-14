@@ -1,10 +1,10 @@
 import '../address/address.dart';
 
 class Customer {
-  final int id;
-  final String name;
-  final String cpf;
-  final Address address;
+  int id;
+  String name;
+  String cpf;
+  Address address;
 
   Customer({
     required this.id,
@@ -14,6 +14,6 @@ class Customer {
   });
 
   toString() {
-    return "$id - $name - $cpf\n Address - ${address.street} - ${address.number} - ${address.complement} - ${address.neighborhood} -${address.city} - ${address.cep}";
+    return "$id - $name - $cpf\n Endereço: - ${address.street} - ${address.number} - ${address.complement} - ${address.neighborhood} -${address.city} - ${address.cep}";
   }
 }

@@ -11,7 +11,7 @@ void main() {
 void executeApp(View view) {
   Map<String, dynamic> context = {
     'terminal': stdin,
-    'contactService': ClienteService()
+    'contactService': CustomerService()
   };
 
   view.render(context);
