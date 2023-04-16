@@ -14,38 +14,38 @@ class CreateCustomerView extends View {
     print('##########################');
     print('');
 
-    print('Digite o nome do cliente');
+    print('\nDigite o nome do cliente');
     String name = terminal.readLineSync() ?? "";
 
     if (name.length < 3) {
-      print("\nNome invalido");
+      print("\n\nNome invalido");
       return;
     }
 
-    print('Digite o cpf do cliente');
+    print('\nDigite o cpf do cliente');
     String cpf = terminal.readLineSync() ?? "";
 
     if (cpf.length != 11) {
-      print("\n CPF invalido");
+      print("\n\n CPF invalido");
       return;
     }
 
-    print('Digite o logradouro da casa do cliente');
+    print('\nDigite o logradouro da casa do cliente');
     String street = terminal.readLineSync() ?? "";
 
-    print('Digite o numero da casa do cliente');
+    print('\nDigite o numero da casa do cliente');
     String number = terminal.readLineSync() ?? '0';
 
-    print('Digite o complemento da casa do cliente');
+    print('\nDigite o complemento da casa do cliente');
     String complement = terminal.readLineSync() ?? "";
 
-    print('Digite o bairro do cliente');
+    print('\nDigite o bairro do cliente');
     String neighborhood = terminal.readLineSync() ?? "";
 
-    print('Digite o cidade do cliente');
+    print('\nDigite o cidade do cliente');
     String city = terminal.readLineSync() ?? "";
 
-    print('Digite o cep do cliente');
+    print('\nDigite o cep do cliente');
     String cep = terminal.readLineSync() ?? '0';
 
     Map<String, dynamic> data = {

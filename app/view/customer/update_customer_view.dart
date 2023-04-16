@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import '../../domain/customer/customer.dart';
+import '../../usecase/customers/find_customer_by_id_usecase.dart';
 import '../../usecase/customers/update_customer_usecase.dart';
 import '../view.dart';
 
@@ -10,10 +12,19 @@ class UpdateCustomerView extends View {
 
     print("\nInforme o ID do cliente que deseja atualizar");
 
-    int id = int.parse(terminal.readLineSync() ?? '-1');
+    int? id = int.tryParse(terminal.readLineSync() ?? '0');
 
-    if (id.isNegative) {
-      print("\nID inválido. Informe um ID válido");
+    if (id == null || id < 1) {
+      print("ID inválido. Por favor informe um número positivo");
+      return;
+    }
+
+    Customer? customer =
+        FindCustomerByIdUsecase().execute({...context, 'data': id});
+
+    if (customer == null) {
+      print("Usuário não encontrado. Informe um ID válido");
+      return;
     }
 
     print('\nDigite o nome do cliente');

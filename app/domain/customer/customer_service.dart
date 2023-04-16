@@ -1,4 +1,5 @@
 import 'customer.dart';
+import 'package:collection/collection.dart';
 
 class CustomerService {
   List<Customer> customers = [];
@@ -15,8 +16,8 @@ class CustomerService {
 
   get getAllCustomers => customers;
 
-  Customer getById(int id) {
-    return customers.firstWhere((c) => c.id == id);
+  Customer? getById(int id) {
+    return customers.firstWhereOrNull((c) => c.id == id);
   }
 
   void deleteCustomer(int id) {

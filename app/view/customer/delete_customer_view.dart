@@ -10,10 +10,10 @@ class DeleteCustomerView extends View {
 
     print("Informe o ID do cliente que deseja remover:");
 
-    int id = int.parse(terminal.readLineSync() ?? '-1');
+    int? id = int.tryParse(terminal.readLineSync() ?? '0');
 
-    if (id < 0) {
-      print("ID inválido. Informe um númeor positivo");
+    if (id == null || id < 1) {
+      print("ID inválido. Informe um número positivo");
       return;
     }
 

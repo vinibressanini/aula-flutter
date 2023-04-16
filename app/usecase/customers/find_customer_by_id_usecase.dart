@@ -5,7 +5,7 @@ class FindCustomerByIdUsecase {
   execute(Map<String, dynamic> context) {
     CustomerService service = context['contactService'];
 
-    Customer customer = service.getById(int.parse(context['data']));
+    Customer? customer = service.getById(context['data']);
 
     return customer;
   }
