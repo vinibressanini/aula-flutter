@@ -1,9 +1,14 @@
 import 'dart:io';
 import 'customer/create_customer_view.dart';
 import 'customer/delete_customer_view.dart';
-import 'customer/find_by_id_view.dart';
+import 'customer/find_customer_by_id_view.dart';
 import 'customer/get_all_customers_view.dart';
 import 'customer/update_customer_view.dart';
+import 'product/create_product_view.dart';
+import 'product/delete_product_view.dart';
+import 'product/find_product_by_id_view.dart';
+import 'product/get_all_products_view.dart';
+import 'product/update_product_view.dart';
 import 'view.dart';
 
 class AppView extends View {
@@ -13,24 +18,35 @@ class AppView extends View {
     Stdin terminal = context['terminal'];
     while (option != 3) {
       showOptions();
-      option = int.parse(terminal.readLineSync() ?? "0");
+      int? option = int.tryParse(terminal.readLineSync() ?? "0");
+      if (option == null) {
+        print("Opção inválida. Informe um número válido");
+      }
       switch (option) {
         case 1:
           while (option != 6) {
             menu();
-            option = int.parse(terminal.readLineSync() ?? '0');
-            executeCustomerOptions(option, context);
+            option = int.tryParse(terminal.readLineSync() ?? "0");
+            if (option == null) {
+              print("Opção inválida. Informe um número válido");
+            } else {
+              executeCustomerOptions(option, context);
+            }
           }
           break;
         case 2:
           while (option != 6) {
             menu();
-            option = int.parse(terminal.readLineSync() ?? '0');
-            executeProductOptions(option, context);
+            option = int.tryParse(terminal.readLineSync() ?? "0");
+            if (option == null) {
+              print("Opção inválida. Informe um número válido");
+            } else {
+              executeProductOptions(option, context);
+            }
           }
           break;
         case 3:
-          break;
+          return;
         default:
           break;
       }
@@ -47,11 +63,11 @@ class AppView extends View {
   }
 
   menu() {
-    print('\n1 - Listar Clientes');
-    print('2 - Criar Novo Cliente');
-    print('3 - Pesquisar Cliente por ID');
-    print('4 - Remover um Cliente');
-    print('5 - Atualizar um Cliente');
+    print('\n1 - Listar Todos');
+    print('2 - Criar Novo');
+    print('3 - Pesquisar por ID');
+    print('4 - Remover');
+    print('5 - Atualizar');
     print('6 - Sair');
   }
 
@@ -64,7 +80,7 @@ class AppView extends View {
         CreateCustomerView().render(context);
         break;
       case 3:
-        FindByIdView().render(context);
+        FindCustomerByIdView().render(context);
         break;
       case 4:
         DeleteCustomerView().render(context);
@@ -82,19 +98,19 @@ class AppView extends View {
   executeProductOptions(int option, context) {
     switch (option) {
       case 1:
-        GetAllCustomersView().render(context);
+        GetAllProductsView().render(context);
         break;
       case 2:
-        CreateCustomerView().render(context);
+        CreateProductView().render(context);
         break;
       case 3:
-        FindByIdView().render(context);
+        FindProductByIdView().render(context);
         break;
       case 4:
-        DeleteCustomerView().render(context);
+        DeleteProductView().render(context);
         break;
       case 5:
-        UpdateCustomerView().render(context);
+        UpdateProductView().render(context);
         break;
       case 6:
         break;

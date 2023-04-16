@@ -13,6 +13,7 @@ class Customer {
     required this.address,
   });
 
+  @override
   toString() {
     return "$id - $name - $cpf\n Endereço: - ${address.street} - ${address.number} - ${address.complement} - ${address.neighborhood} -${address.city} - ${address.cep}";
   }

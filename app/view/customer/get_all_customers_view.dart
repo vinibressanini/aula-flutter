@@ -8,7 +8,7 @@ class GetAllCustomersView extends View {
     CustomerService service = context['contactService'];
     List<Customer> customers = service.getAllCustomers;
     for (Customer customer in customers) {
-      print("\n\n ${customer.toString()} \n\n");
+      print("\n\n ${customer.toString()}");
     }
   }
 }

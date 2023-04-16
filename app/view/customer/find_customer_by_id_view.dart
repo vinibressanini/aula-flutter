@@ -4,7 +4,7 @@ import '../view.dart';
 
 import 'dart:io';
 
-class FindByIdView extends View {
+class FindCustomerByIdView extends View {
   @override
   render(Map<String, dynamic> context) {
     Stdin terminal = context['terminal'];
