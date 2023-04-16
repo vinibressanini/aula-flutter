@@ -22,4 +22,11 @@ class CustomerService {
   void deleteCustomer(int id) {
     customers.removeWhere((customer) => customer.id == id);
   }
+
+  void updateCustomer(Customer customer) {
+    // Insert the new customer
+    customers.insert(customer.id - 1, customer);
+    // Remove the older customer
+    customers.removeAt(customer.id);
+  }
 }

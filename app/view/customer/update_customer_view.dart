@@ -1,20 +1,22 @@
 import 'dart:io';
-import 'dart:core';
 
-import '../../usecase/customers/create_customer_usecase.dart';
+import '../../usecase/customers/update_customer_usecase.dart';
 import '../view.dart';
 
-class CreateCustomerView extends View {
+class UpdateCustomerView extends View {
   @override
   render(Map<String, dynamic> context) {
     Stdin terminal = context['terminal'];
 
-    print('##########################');
-    print('N O V O   C O N T A T O');
-    print('##########################');
-    print('');
+    print("\nInforme o ID do cliente que deseja atualizar");
 
-    print('Digite o nome do cliente');
+    int id = int.parse(terminal.readLineSync() ?? '-1');
+
+    if (id.isNegative) {
+      print("\nID inválido. Informe um ID válido");
+    }
+
+    print('\nDigite o nome do cliente');
     String name = terminal.readLineSync() ?? "";
 
     if (name.length < 3) {
@@ -22,33 +24,34 @@ class CreateCustomerView extends View {
       return;
     }
 
-    print('Digite o cpf do cliente');
+    print('\nDigite o cpf do cliente');
     String cpf = terminal.readLineSync() ?? "";
 
     if (cpf.length != 11) {
-      print("\n CPF invalido");
+      print("\nCPF invalido");
       return;
     }
 
-    print('Digite o logradouro da casa do cliente');
+    print('\nDigite o logradouro da casa do cliente');
     String street = terminal.readLineSync() ?? "";
 
-    print('Digite o numero da casa do cliente');
+    print('\nDigite o numero da casa do cliente');
     String number = terminal.readLineSync() ?? '0';
 
-    print('Digite o complemento da casa do cliente');
+    print('\nDigite o complemento da casa do cliente');
     String complement = terminal.readLineSync() ?? "";
 
-    print('Digite o bairro do cliente');
+    print('\nDigite o bairro do cliente');
     String neighborhood = terminal.readLineSync() ?? "";
 
-    print('Digite o cidade do cliente');
+    print('\nDigite o cidade do cliente');
     String city = terminal.readLineSync() ?? "";
 
-    print('Digite o cep do cliente');
+    print('\nDigite o cep do cliente');
     String cep = terminal.readLineSync() ?? '0';
 
     Map<String, dynamic> data = {
+      "id": id,
       "name": name,
       "cpf": cpf,
       "street": street,
@@ -59,6 +62,6 @@ class CreateCustomerView extends View {
       "cep": cep
     };
 
-    CreateCustomerUsecase().execute({...context, 'data': data});
+    UpdateCustomerUsecase().execute({...context, 'data': data});
   }
 }

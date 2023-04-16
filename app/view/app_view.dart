@@ -3,6 +3,7 @@ import 'customer/create_customer_view.dart';
 import 'customer/delete_customer_view.dart';
 import 'customer/find_by_name_view.dart';
 import 'customer/get_all_customers_view.dart';
+import 'customer/update_customer_view.dart';
 import 'view.dart';
 
 class AppView extends View {
@@ -10,7 +11,7 @@ class AppView extends View {
   render(Map<String, dynamic> context) {
     var option = -1;
     Stdin terminal = context['terminal'];
-    while (option != 5) {
+    while (option != 6) {
       menu();
       option = int.parse(terminal.readLineSync() ?? "0");
       executeOption(option, context);
@@ -26,7 +27,8 @@ class AppView extends View {
     print('2 - Criar Novo Cliente');
     print('3 - Pesquisar Cliente por Nome');
     print('4 - Remover um Cliente');
-    print('5 - Sair');
+    print('5 - Atualizar um Cliente');
+    print('6 - Sair');
   }
 
   executeOption(int option, context) {
@@ -44,6 +46,9 @@ class AppView extends View {
         DeleteCustomerView().render(context);
         break;
       case 5:
+        UpdateCustomerView().render(context);
+        break;
+      case 6:
         break;
       default:
         print('Opção Inválida');
